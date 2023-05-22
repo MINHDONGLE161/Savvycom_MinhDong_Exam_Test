@@ -2,25 +2,25 @@
 The attached python file should be inserted into a new Django project, so that unit tests can be run against it. It should follow the principles of unit testing in that it only tests the many results depending on the inputs and mocked conditions, and minimizes exposure to external logic, but has checks to ensure that calls to external logic are made. It is expected to make heavy use of mocking.
 
 Please use Django / Python for your solution. The logic and thought process demonstrated are the most important considerations rather than truly functional code, however code presentation is important as well as the technical aspect. If you cannot settle on a single perfect solution, you may also discuss alternative solutions to demonstrate your understanding of potential trade-offs as you encounter them. Of course if you consider a solution is too time consuming you are also welcome to clarify or elaborate on potential improvements or multiple solution approaches conceptually to demonstrate understanding and planned solution.
-     def do_lots_of_things(a, b, c):
-       """
-      Tests a bunch of things
-      :param a: int
-      :param b: str
-      :param c: datetime
-      :return: int
-      """
-      validate_is_int(a)  # Raises django.core.exceptions.ValidationError('a is invalid')
-      validate_is_string(b)  # Raises django.core.exceptions.ValidationError('b is invalid')
-      validate_is_datetime(c)  # Raises django.core.exceptions.ValidationError('c is invalid')
+        def do_lots_of_things(a, b, c):
+        """
+        Tests a bunch of things
+        :param a: int
+        :param b: str
+        :param c: datetime
+        :return: int
+        """
+        validate_is_int(a)  # Raises django.core.exceptions.ValidationError('a is invalid')
+        validate_is_string(b)  # Raises django.core.exceptions.ValidationError('b is invalid')
+        validate_is_datetime(c)  # Raises django.core.exceptions.ValidationError('c is invalid')
 
-      if (a == 2 or b != 'foo') or django.conf.settings.ALWAYS_CHECK_C:
-        validate_is_next_year(c)  # Raises django.core.exceptions.ValidationError('c is not next year')
+        if (a == 2 or b != 'foo') or django.conf.settings.ALWAYS_CHECK_C:
+          validate_is_next_year(c)  # Raises django.core.exceptions.ValidationError('c is not next year')
 
-      if b == 'bar':
-        return a * 3
+        if b == 'bar':
+         return a * 3
 
-      return a * django.conf.settings.MULTIPLY_A
+         return a * django.conf.settings.MULTIPLY_A
 
 
 
