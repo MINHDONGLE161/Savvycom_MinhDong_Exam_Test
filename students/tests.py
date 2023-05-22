@@ -54,14 +54,15 @@ class StudentTests_Service(TestCase):
         is_datetime = ProductionClass.method(2,"b",7)
         self.assertEqual(is_datetime, ("This field accepts datetime only")) 
 
-    # test case if b="bar", return a* django.conf.settings.MULTIPLY_A ( example MULTIPLY_A=3 )
+    # test case if b="bar", return a*3 
     def test_string_bar(self):
         is_3a = ProductionClass.method(3,"bar",datetime.date(2022,1,2))
         self.assertEqual(is_3a, 9)
-
-    def test_not_integer(self):
-        is_integer = ProductionClass.method("A","B",datetime.date(2022,1,2))
-        self.assertEqual(is_integer, "This field accepts interger only")
+        
+    # test case return a * django.conf.settings.MULTIPLY_A (example MULTIPLY_A=5)
+    def test_return(self):
+        is_return = ProductionClass.method(7,"B",datetime.date(2022,1,2))
+        self.assertEqual(is_return, 35)
 
                         
 
