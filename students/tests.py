@@ -54,11 +54,17 @@ class StudentTests_Service(TestCase):
         is_datetime = ProductionClass.method(2,"b",7)
         self.assertEqual(is_datetime, ("This field accepts datetime only")) 
 
+    # test case  validate_is_next_year(c) if a =2 or b !="foo"
+    def test_nextyear(self):
+        is_nextyear = ProductionClass.method(2,"a",datetime.date(2024,1,2))
+        self.assertEqual(is_nextyear, ("This field accepts datetime of next year only"))
+
+    
     # test case if b="bar", return a*3 
     def test_string_bar(self):
         is_3a = ProductionClass.method(3,"bar",datetime.date(2022,1,2))
         self.assertEqual(is_3a, 9)
-        
+
     # test case return a * django.conf.settings.MULTIPLY_A (example MULTIPLY_A=5)
     def test_return(self):
         is_return = ProductionClass.method(7,"B",datetime.date(2022,1,2))
